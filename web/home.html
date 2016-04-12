@@ -11,60 +11,16 @@
     <span id="nav"></span>
     <span id="slider"></span>
     <span id="content"></span>
-    <a href="root/page/userPage">Login</a>
-    <!--<form id="loginFrm">-->
-        <!--<div class="vCenter-hCenter">-->
-            <!--<div class="input-btn sz-48hx48w vCenter-hCenter shrink0"><img class="sz-24hx24w" src="images/user_white.svg"></div>-->
-            <!--<input type="text" name="UserName" placeholder="Username" required autofocus/>-->
-        <!--</div>-->
-        <!--<div class="vCenter-hCenter">-->
-            <!--<div class="input-btn sz-48hx48w vCenter-hCenter shrink0"><img class="sz-24hx24w" src="images/lock_white.svg"></div>-->
-            <!--<input type="text" name="Password" placeholder="Password" required/>-->
-        <!--</div>-->
-        <!--<div>-->
-            <!--<input type="submit" name="submit" value="Login"/>-->
-        <!--</div>-->
-        <!--<div class="vCenter-hFlexEnd">-->
-            <!--<p>Not a Member? <strong><a href="registration.html">Sign up Now</a></strong></p>-->
-        <!--</div>-->
-    <!--</form>-->
+
     <script>
         $(document).ready(function(){
             $('#nav').load('nav.html');
             $('#slider').load('slider.html');
 //            $('#content').load('login.html');
-            $.ajax({
-                type: 'GET',
-                url: 'rest/user/page',
-                dataType: 'json',
-                success: function(data) {
-                    getPage(data);
-                    console.log(data);
-                    alert("Success");
-                },
-                error: function(data) {
-                    getPage(data);
-                    console.log(data);
-                    alert("Error");
-                },
-            });
 //            var profile = JSON.parse(localStorage.getItem("data"));
 //            profile.message = "blah";
 //            console.log(profile);
         });
-
-        function getPage(data) {
-            console.log(data);
-//            console.log(data.UserName)
-//            localStorage.setItem("data",JSON.stringify(data));
-            if(data.UserName != null){
-                $('#content').load('user.html');
-            } else if(data.code == 0){
-                $('#content').load(data.message);
-            } else {
-                //$('#content').load('error.html');
-            }
-        }
     </script>
 </body>
 </html>

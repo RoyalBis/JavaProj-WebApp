@@ -78,6 +78,33 @@ public class CustomerResource
         return result;
     }
 
+    @GET
+    @Path("logout")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String logout(
+            @DefaultValue("1") @QueryParam("version") int version)
+    {
+        String result = null;
+        try {
+            switch (version) {
+                case 1:
+                    if(Authenication.Unauthenticate(request))
+                    {
+                        result = JsonGenerator.generateSuccessJson("Logged out");
+                    }
+                    break;
+                default:
+                    throw new Exception("Invalid Version");
+            }
+        }
+        catch (Exception e)
+        {
+            result = JsonGenerator.generateErrorJson(e);
+        }
+        return result;
+    }
+
+
     @POST
     @Path("register")
     //@Consumes(MediaType.APPLICATION_JSON)

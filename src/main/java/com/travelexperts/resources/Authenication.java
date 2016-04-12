@@ -21,4 +21,11 @@ public class Authenication
             return null;
         }
     }
+
+    public static boolean Unauthenticate(HttpServletRequest request) throws Exception
+    {
+        HttpSession session = request.getSession(false);
+        if(session != null) { session.invalidate(); }
+        return true;
+    }
 }
