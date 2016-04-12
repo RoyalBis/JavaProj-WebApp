@@ -1,0 +1,10 @@
+<svg id="arrow1_left" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 31">
+ <defs>
+  <style>
+    .svg-lines{fill:none;stroke:#006064;stroke-linecap:round;stroke-linejoin:round;stroke-width:6px;}
+  </style>
+ </defs>
+ <title>arrow1_left</title>
+ <line class="svg-lines" x1="3" y1="15" x2="15" y2="3"/>
+ <line class="svg-lines" x1="3" y1="15" x2="15" y2="28"/>
+</svg>

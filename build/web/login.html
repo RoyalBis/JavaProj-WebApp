@@ -1,0 +1,36 @@
+<form id="loginFrm">
+    <div class="vCenter-hCenter">
+        <div class="input-btn sz-48hx48w vCenter-hCenter shrink0"><img class="sz-24hx24w" src="images/user_white.svg"></div>
+        <input type="text" name="UserName" placeholder="Username" required autofocus/>
+    </div>
+    <div class="vCenter-hCenter">
+        <div class="input-btn sz-48hx48w vCenter-hCenter shrink0"><img class="sz-24hx24w" src="images/lock_white.svg"></div>
+        <input type="text" name="Password" placeholder="Password" required/>
+    </div>
+    <div>
+        <input type="submit" name="submit" value="Login"/>
+    </div>
+    <p class="vCenter-hFlexEnd">
+        <p>Not a Member? <strong>Sign up Now</strong></p>
+    </div>
+</form>
+
+<script>
+    $(document).ready(function(){
+       $('#loginFrm').submit(function(e) {
+           $.ajax({
+               type: 'POST',
+               url: 'rest/user/authenticate',
+               data: $("#loginFrm").serialize(),
+               dataType: 'json',
+               success: function(data){
+                   console.log(data);
+               },
+               error: function(data){
+                   console.log(data);
+               }
+           });
+           e.preventDefault();
+       });
+    });
+</script>

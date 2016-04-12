@@ -1,0 +1,40 @@
+<div>
+
+</div>
+
+<h1>Marks Phrases</h1>
+<h3>Munson Burner</h3>
+<h3>Bangled</h3>
+<h3>Goober</h3>
+<h3>Beetle</h3>
+
+<script>
+    $.ajax({
+        type: 'GET',
+        url: 'rest/user/page',
+        dataType: 'json',
+        success: function(data) {
+            getPage(data);
+            console.log(data);
+            alert("Success");
+        },
+        error: function(data) {
+            getPage(data);
+            console.log(data);
+            alert("Error");
+        }
+    });
+
+    function getPage(data) {
+        console.log(data);
+//            console.log(data.UserName)
+//            localStorage.setItem("data",JSON.stringify(data));
+        if(data.UserName != null){
+            $('#content').load('user.html');
+        } else if(data.code == 0){
+            $('#content').load(data.message);
+        } else {
+            //$('#content').load('error.html');
+        }
+    }
+</script>
