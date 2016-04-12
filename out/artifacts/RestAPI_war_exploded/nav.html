@@ -4,25 +4,65 @@
             <img class="sz-24hx24w" src="images/menu_white.svg">
         </button>
         <div id="menu" style="display:none">
-            <button class="sz-32hx256w vCenter-hSpaceBetween hoverable teal-button marg-all10 pad-left10-right10">
-                <p>Welcome User</p>
+            <button id="loginBtn" class="sz-32hx256w vCenter-hSpaceBetween hoverable teal-button marg-all10 pad-left10-right10">
+                <p>Login</p>
                 <img class="sz-24hx24w" src="images/user_white.svg">
             </button>
-            <button class="sz-32hx256w vCenter-hSpaceBetween hoverable teal-button marg-all10 pad-left10-right10">
-                <p>Welcome User</p>
-                <img class="sz-24hx24w" src="images/user_white.svg">
+            <button id="bookingsBtn"  class="sz-32hx256w vCenter-hSpaceBetween hoverable teal-button marg-all10 pad-left10-right10">
+                <p>Bookings</p>
+                <img class="sz-24hx24w" src="images/bookings_white.svg">
             </button>
-            <button class="sz-32hx256w vCenter-hSpaceBetween hoverable teal-button marg-all10 pad-left10-right10">
-                <p>Settings</p>
-                <img class="sz-24hx24w" src="images/gear_white.svg">
+            <button id="registerBtn" class="sz-32hx256w vCenter-hSpaceBetween hoverable teal-button marg-all10 pad-left10-right10">
+                <p>Register</p>
+                <img class="sz-24hx24w" src="images/register_white.svg">
             </button>
+            <!--<button id="settingsBtn" class="sz-32hx256w vCenter-hSpaceBetween hoverable teal-button marg-all10 pad-left10-right10">-->
+                <!--<p>Settings</p>-->
+                <!--<img class="sz-24hx24w" src="images/gear_white.svg">-->
+            <!--</button>-->
         </div>
     </div>
 </nav>
 
 <script>
-    $("#menuBtn").click (function() {
-       $("#menu").slideToggle();
+    $(document).ready(function() {
+        $("#menuBtn").click(function () {
+            $("#menu").slideToggle();
+        });
+        $("#loginBtn").click(function () {
+            $("#loginBtn").click(function () {
+
+            })
+        });
+        $("#bookingsBtn").click(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'rest/user/bookings',
+                dataType: 'json',
+                success: function (data) {
+                    $("#content").load("bookings.html");
+                }
+            });
+        });
+        $("#registerBtn").click(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'rest/user/logout',
+                dataType: 'json',
+                success: function (data) {
+                    $('#content').load('registration.html');
+                }
+            });
+        });
+        $("#menu > button").click(function () {
+            $("#menu").slideToggle();
+            }
+        );
     });
+//    $("#settingsBtn").click (function() {
+//        $("#loginBtn").click(function() {
+//
+//        })
+//    })
 </script>
 

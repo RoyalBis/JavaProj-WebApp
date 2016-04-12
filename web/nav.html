@@ -25,29 +25,40 @@
 </nav>
 
 <script>
-    $("#menuBtn").click (function() {
-       $("#menu").slideToggle();
-    });
-    $("#loginBtn").click (function() {
-        $("#loginBtn").click(function() {
-
-        })
-    })
-    $("#bookingsBtn").click (function() {
-        $("#loginBtn").click(function() {
-
-        })
-    })
-    $("#registerBtn").click (function() {
-        $.ajax({
-            type: 'GET',
-            url: 'rest/user/logout',
-            dataType: 'json',
-            success: function(data) {
-                $("#content").load("register.html");
-            }
+    $(document).ready(function() {
+        $("#menuBtn").click(function () {
+            $("#menu").slideToggle();
         });
-    })
+        $("#loginBtn").click(function () {
+            $("#loginBtn").click(function () {
+
+            })
+        });
+        $("#bookingsBtn").click(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'rest/user/bookings',
+                dataType: 'json',
+                success: function (data) {
+                    $("#content").load("bookings.html");
+                }
+            });
+        });
+        $("#registerBtn").click(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'rest/user/logout',
+                dataType: 'json',
+                success: function (data) {
+                    $('#content').load('registration.html');
+                }
+            });
+        });
+        $("#menu > button").click(function () {
+            $("#menu").slideToggle();
+            }
+        );
+    });
 //    $("#settingsBtn").click (function() {
 //        $("#loginBtn").click(function() {
 //

@@ -14,11 +14,11 @@ form > h2 {
     color: #ffffff;
 }
 
-form p {
+form strong {
     color: #80CBC4;
 }
 
-form a {
+form p {
     color: #E0F2F1;
     text-decoration: none;
 }
@@ -30,6 +30,17 @@ form > div {
 form input:focus {
     border-color: #80CBC4;
     box-shadow: 0 0 10px #E0F2F1;
+}
+
+form label {
+    color: #ffffff;
+    width: 30%;
+    margin-right: 10px;
+}
+
+form label + input{
+    width:70%;
+
 }
 
 form input {
