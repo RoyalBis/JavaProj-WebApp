@@ -1,0 +1,11 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg id="arrow1_left" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 31">
+  <style>
+    #icon-lines {fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:4px;}
+  </style>
+ <g id="icon-lines" stroke="white">
+	 <line x1="3" y1="15" x2="15" y2="3"/>
+	 <line x1="3" y1="15" x2="15" y2="28"/>
+ </g>
+</svg>

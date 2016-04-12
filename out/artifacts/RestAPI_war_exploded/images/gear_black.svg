@@ -1,0 +1,27 @@
+<svg id="5bf6a6ff-ece5-4041-906b-e76a1934ec95" data-name="d49a3894-fddd-4844-a0a4-a3fd24a1e3f2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 31">
+  <defs>
+    <style>
+      .\36 4ff9555-973c-4033-9a00-f0ba2ae765be, .c52cc834-c160-4c0f-a4cd-a3f31716bc89 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .\36 4ff9555-973c-4033-9a00-f0ba2ae765be {
+        stroke-width: 4px;
+      }
+
+      .c52cc834-c160-4c0f-a4cd-a3f31716bc89 {
+        stroke-width: 6px;
+      }
+    </style>
+  </defs>
+  <title>gear_black</title>
+  <circle class="64ff9555-973c-4033-9a00-f0ba2ae765be" cx="15" cy="15.5" r="7"/>
+  <line class="c52cc834-c160-4c0f-a4cd-a3f31716bc89" x1="14.97" y1="3" x2="14.97" y2="7.5"/>
+  <line class="c52cc834-c160-4c0f-a4cd-a3f31716bc89" x1="4.16" y1="9.28" x2="8.06" y2="11.53"/>
+  <line class="c52cc834-c160-4c0f-a4cd-a3f31716bc89" x1="4.19" y1="21.78" x2="8.09" y2="19.53"/>
+  <line class="c52cc834-c160-4c0f-a4cd-a3f31716bc89" x1="15.03" y1="28" x2="15.03" y2="23.5"/>
+  <line class="c52cc834-c160-4c0f-a4cd-a3f31716bc89" x1="25.84" y1="21.72" x2="21.94" y2="19.47"/>
+  <line class="c52cc834-c160-4c0f-a4cd-a3f31716bc89" x1="25.81" y1="9.22" x2="21.91" y2="11.47"/>
+</svg>

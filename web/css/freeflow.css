@@ -1,0 +1,373 @@
+* {
+    margin: 0;
+    padding: 0;
+    /*border: dashed 1px red;*/
+}
+
+button {
+    outline: none;
+    border: none;
+}
+
+body {
+    background-color: #004D40
+}
+
+.modalD {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+.modalD:target {
+    opacity:1;
+    pointer-events: auto;
+}
+
+/*The div inside in the modal*/
+.modal {
+    width: 400px;
+    margin: 10% auto;
+    background: #fff;
+    /*Gradients*/
+    /*background: -moz-linear-gradient(#fff, #999);*/
+    /*background: -webkit-linear-gradient(#fff, #999);*/
+    /*background: -o-linear-gradient(#fff, #999);*/
+}
+
+.vCenter-hFlexStart {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+.vCenter-hFlexEnd {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    text-align: center;
+}
+
+.vCenter-hSpaceBetween {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vCenter-hSpaceAround {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.vCenter-hCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vStart-hCenter {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.vStart-hSpaceBetween {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.vBaseline-hSpaceBetween {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.selfStart {
+    align-self: flex-start;
+}
+
+.selfCenter {
+    align-self: center;
+}
+
+.shrink0 {
+    flex-shrink: 0;
+}
+
+.shrink1 {
+    flex-shrink: 1;
+}
+
+.marg-all10 {
+    margin: 10px;
+}
+
+.marg-all5 {
+    margin: 5px;
+}
+
+
+.pad-left10-right10 {
+    padding: 0px 10px 0px 10px;
+}
+
+.pad-left20-right20 {
+    padding: 0px 20px 0px 20px;
+}
+
+.pad-left-bottom-right {
+    padding: 0px 10px 10px 10px;
+}
+
+.pad-all0 {
+    padding: 0;
+}
+
+.pad-all20 {
+    padding: 20px;
+}
+
+.slider {
+    position: relative;
+    top: 0;
+    height: auto;
+}
+
+.img-cover {
+    object-fit: cover;
+    /*height: 100%;*/
+    width: 100%;
+}
+
+.slider-img-contain {
+    object-fit: contain;
+    /*height: 100%;*/
+    width: 100%;
+}
+
+.flex-item {
+    flex: 2 1 100%;
+}
+
+.sz-24hx24w {
+    /*would be great if I could set this to the size of the svg element*/
+    height: 24px;
+    width: 24px;
+}
+
+.sz-100hx24w {
+    height: 100%;
+    width: 24px;
+}
+
+.sz-100hx100w {
+    height: 100%;
+    width: 100%;
+}
+
+.sz-64hx64w {
+    height: 64px;
+    width: 64px;
+}
+
+.sz-64x100w {
+    height: 64px;
+    width: 100%;
+}
+
+.sz-48hx48w {
+    height: 48px;
+    width: 48px;
+}
+
+.sz-32hx128w {
+    height: 32px;
+    width: 128px;
+}
+
+.sz-32hx32w {
+    height: 32px;
+    width: 32px;
+}
+
+.sz-32hx256w {
+    height: 32px;
+    width: 256px;
+}
+
+.sz-64hx80w {
+    height: 64px;
+    width: 80px;
+}
+
+.rel-top {
+    position: relative;
+    z-index: 2;
+}
+
+.abs-right, .abs-left {
+    position: absolute;
+    z-index: 2;
+}
+
+.abs-right {
+    right: 0;
+}
+
+.abs-left {
+    left: 0;
+}
+
+.abs-top {
+    top: 0;
+}
+
+.abs-top-bottom-right, .abs-top-left-bottom {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+}
+
+.abs-top-bottom-right {
+    right: 0;
+}
+
+.abs-top-left-bottom {
+    left: 0;
+}
+
+.fix-left, .fix-left10, .fix-right, .fix-right10, .fix-left-top-bottom, .fix-right-top-bottom, .fix-top, .fix-top-left-right {
+    position: fixed;
+    z-index: 2;
+}
+
+.fix-left {
+    left: 0;
+}
+
+.fix-left10 {
+    left: 10px;
+}
+
+.fix-right {
+    right: 0;
+}
+
+.fix-right10 {
+    right: 10px;
+}
+
+.fix-top {
+    top: 0;
+}
+
+.fix-left-top-bottom {
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.fix-right-top-bottom {
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.fix-top-left-right {
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.hoverable, button.hoverable > * {
+    border: none;
+}
+
+.hoverable:hover, button.hoverable:hover > * {
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+}
+
+.teal-button {
+    background: #4DB6AC;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*-webkit-transition: width .5s, height .5s, margin .5s;*/
+    /*-moz-transition: width .5s, height .5s, margin .5s;*/
+    /*-ms-transition: width .5s, height .5s, margin .5s;*/
+    /*transition: width .5s, height .5s, margin .5s;*/
+}
+
+.teal-button:hover {
+    background: #009688;
+    /*width: 128px;*/
+    /*height: 128px;*/
+    /*-webkit-transition: width .5s, height .5s, margin .5s;*/
+    /*-moz-transition: width .5s, height .5s, margin .5s;*/
+    /*-ms-transition: width .5s, height .5s, margin .5s;*/
+    /*transition: width .5s, height .5s, margin .5s;*/
+}
+
+.teal-button:active {
+    background: #80CBC4;
+    border: none;
+}
+
+.disappear:active {
+    width: 0;
+    height: 0;
+    /*-webkit-transition: width .5s, height .5s, margin .5s;*/
+    /*-moz-transition: width .5s, height .5s, margin .5s;*/
+    /*-ms-transition: width .5s, height .5s, margin .5s;*/
+    /*transition: width .5s, height .5s, margin .5s;*/
+}
+
+button {
+    width: 0;
+    height: 0;
+}
+
+object {
+    width: 75%;
+    height: 75%;
+}
+
+nav.nav-simple {
+    position: fixed;
+    top: 0;
+    z-index: 99999;
+    margin-top: 0px;
+}
+
+.slider-left, .slider-right, .slider-buttons {
+    /*position: fixed;*/
+    /*top: 50%;*/
+    z-index: 100;
+    /*transform: translate(0, -50%);*/
+}
+
+.teal-button > p {
+    color: white;
+    font-weight: 700;
+}
+
+.temp {
+    z-index: 99999;
+}
+
+line {fill:none;stroke:green;stroke-linecap:round;stroke-linejoin:round;stroke-width:6px;}
