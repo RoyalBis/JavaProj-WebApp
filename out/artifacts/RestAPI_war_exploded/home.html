@@ -17,6 +17,11 @@
             $('#nav').load('nav.html');
             $('#slider').load('slider.html');
         });
+
+        function logout() {
+            $("#profileBtn").hide().unbind("click");
+            $("#profileBtn p").html("");
+        }
     </script>
 </body>
 </html>

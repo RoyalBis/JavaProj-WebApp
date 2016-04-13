@@ -2,22 +2,35 @@
     <div>
         <h1 id="username"></h1>
         <div id="profilecontent"></div>
+        <div id="bookings">I am a bunch of fucking bookings</div>
     </div>
 </div>
 
 <script>
     var user;
     $(document).ready(function() {
+//        $.ajax({
+//            type: 'GET',
+//            url: 'rest/user/page',
+//            dataType: 'json',
+//            success: function (data) {
+//                getPage(data);
+//                console.log(data);
+//            },
+//            error: function (data) {
+//                getPage(data);
+//                console.log(data);
+//            }
+//        });
         $.ajax({
             type: 'GET',
-            url: 'rest/user/page',
+            url: 'rest/user/bookings',
             dataType: 'json',
             success: function (data) {
-                getPage(data);
+                getBookings(data);
                 console.log(data);
             },
             error: function (data) {
-                getPage(data);
                 console.log(data);
             }
         });
@@ -37,5 +50,29 @@
 
     function buildPage(data){
         $('#username').html(data.CustFirstName + " " + data.CustLastName);
+
+    }
+
+    function getBookings(data){
+        console.log(data);
+        //alert(data.length);
+        for(var i = 0; i < data.length -2; i++) {
+            buildBookings(i,data[i]);
+        }
+        for(var i = 0; i < data.length -2; i++) {
+            fillBookings(i, data[i]);
+        }
+    }
+
+    function buildBookings(i,booking) {
+        alert(booking.BookingId);
+        $('#bookings').append("<div id='booking"+i+"'></div>")
+        var id = "booking" + i;
+        $('#'+id).load('bookings.html');
+    }
+
+    function fillBookings(i,booking) {
+        var id = "booking" + i;
+        $('#'+id).html("<p>"+booking.BookingId+"<p>")
     }
 </script>

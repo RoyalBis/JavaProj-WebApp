@@ -48,6 +48,7 @@
                 url: 'rest/user/logout',
                 dataType: 'json',
                 success: function (data) {
+                    logout();
                     $('#content').load('registration.html');
                 }
             });
@@ -57,10 +58,5 @@
             }
         );
     });
-//    $("#settingsBtn").click (function() {
-//        $("#loginBtn").click(function() {
-//
-//        })
-//    })
 </script>
 
