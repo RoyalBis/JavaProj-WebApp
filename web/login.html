@@ -24,9 +24,8 @@
                data: $("#loginFrm").serialize(),
                dataType: 'json',
                success: function(data){
-                   console.log(data);
                    $("#profileBtn").show().click($("#content").load("profile.html"));
-                   $("#profileBtn p").text(data.UserName);
+                   $("#profileBtn p").html(data.UserName);
                },
                error: function(data){
                    console.log(data);

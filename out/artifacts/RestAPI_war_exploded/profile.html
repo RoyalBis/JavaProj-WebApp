@@ -14,12 +14,10 @@
             success: function (data) {
                 getPage(data);
                 console.log(data);
-                //alert("Success");
             },
             error: function (data) {
                 getPage(data);
                 console.log(data);
-                //alert("Error");
             }
         });
     });
@@ -28,7 +26,6 @@
         //console.log(data);
         //localStorage.setItem("data",JSON.stringify(data));
         if(data != null){
-            profile = data;
             buildPage(data);
         } else if(data.code == 0){
             $('#content').load(data.message);
