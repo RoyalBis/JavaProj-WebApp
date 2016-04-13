@@ -56,23 +56,23 @@
     function getBookings(data){
         console.log(data);
         //alert(data.length);
-        for(var i = 0; i < data.length -2; i++) {
+        for(var i = 0; i < data.length -1; i++) {
             buildBookings(i,data[i]);
-        }
-        for(var i = 0; i < data.length -2; i++) {
-            fillBookings(i, data[i]);
         }
     }
 
     function buildBookings(i,booking) {
         alert(booking.BookingId);
-        $('#bookings').append("<div id='booking"+i+"'></div>")
         var id = "booking" + i;
+        var sel = "#bookings#booking"+i+".BookingId";
         $('#'+id).load('bookings.html');
-    }
-
-    function fillBookings(i,booking) {
-        var id = "booking" + i;
-        $('#'+id).html("<p>"+booking.BookingId+"<p>")
+//        $(sel).html("ddhd");
+        console.log(document);
+        var bookingsHtml = "<div class='BookingId'>"+booking.BookingId+"</div>" +
+                        "<div class='BookingId'>"+booking.BookingDate+"</div>" +
+                       "<div class='BookingNo'>"+booking.BookingNo+"</div>" +
+                        "<div class='TravlerCount'>"+booking.TravelerCount+"</div>";
+        //$('#'+id).html(bookingsHtml);
+        $('#bookings').append("<div id='"+id+"'>"+bookingsHtml+"</div>");
     }
 </script>
