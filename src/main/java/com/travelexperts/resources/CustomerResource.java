@@ -63,8 +63,7 @@ public class CustomerResource
                         Customer cust = (Customer) CustomerProvider.GetWhere(map).get(0);
                         HttpSession session = request.getSession(true);
                         session.setAttribute("user", cust);
-                        result = JsonGenerator.generateSuccessJson(cust.getCustFirstName() + " " +
-                                cust.getCustLastName() + " Logged In");
+                        result = JsonGenerator.generateJson(cust);
                     } else {
                         throw new Exception("Invalid Parameters");
                     }
