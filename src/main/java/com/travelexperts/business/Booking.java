@@ -1,5 +1,6 @@
 package com.travelexperts.business;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -14,6 +15,15 @@ public class Booking implements IEntity
     private int CustomerId;
     private String TripTypeId;
     private int PackageId;
+    private ArrayList<BookingDetails> BookingDetails = new ArrayList<>();
+    
+    public ArrayList<BookingDetails> getBookingDetails() { 
+        return BookingDetails; 
+    }
+    
+    public void setBookingDetails(ArrayList<BookingDetails> bookingdetails) { 
+        BookingDetails = bookingdetails; 
+    }
 
     public int getBookingId()
     {

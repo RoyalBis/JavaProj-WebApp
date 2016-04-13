@@ -16,23 +16,22 @@
                 <p>Register</p>
                 <img class="sz-24hx24w" src="images/register_white.svg">
             </button>
-            <!--<button id="settingsBtn" class="sz-32hx256w vCenter-hSpaceBetween hoverable teal-button marg-all10 pad-left10-right10">-->
-                <!--<p>Settings</p>-->
-                <!--<img class="sz-24hx24w" src="images/gear_white.svg">-->
-            <!--</button>-->
+            <button id="profileBtn" style="display:none" class="sz-32hx256w vCenter-hSpaceBetween hoverable teal-button marg-all10 pad-left10-right10">
+                <p></p>
+                <img class="sz-24hx24w" src="images/user_white.svg">
+            </button>
         </div>
     </div>
 </nav>
 
 <script>
     $(document).ready(function() {
+        $("#profileBtn").show();
         $("#menuBtn").click(function () {
             $("#menu").slideToggle();
         });
         $("#loginBtn").click(function () {
-            $("#loginBtn").click(function () {
-
-            })
+            $('#content').load('login.html');
         });
         $("#bookingsBtn").click(function () {
             $.ajax({

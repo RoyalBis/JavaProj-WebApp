@@ -2,9 +2,11 @@ package com.travelexperts.resources;
 
 import com.google.gson.reflect.TypeToken;
 import com.travelexperts.business.Booking;
+import com.travelexperts.business.BookingDetails;
 import com.travelexperts.business.Customer;
 import com.travelexperts.json.JsonGenerator;
 import com.travelexperts.json.JsonResult;
+import com.travelexperts.model.BookingDetailsProvider;
 import com.travelexperts.model.BookingProvider;
 import com.travelexperts.model.CustomerProvider;
 
@@ -153,7 +155,12 @@ public class CustomerResource
             Customer cust = Authenication.Authenicate(request);
             if(cust != null){
                 int user = cust.getCustomerId();
-                ArrayList bookings = BookingProvider.GetWhere("CustomerId",user);
+                
+                ArrayList<Booking> bookings = BookingProvider.GetWhere("CustomerId",user);
+                for(Booking book: bookings) { 
+                    ArrayList<BookingDetails> details = BookingDetailsProvider.GetWhere("BookingId", book.getBookingId()); 
+                    book.setBookingDetails(details);
+                }
                 result = JsonGenerator.generateJson(bookings);
             }
             else{
