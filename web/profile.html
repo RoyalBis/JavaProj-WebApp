@@ -67,10 +67,11 @@
         $('#'+id).load('bookings.html');
 //        $(sel).html("ddhd");
         console.log(document);
-        var bookingsHtml = "<div class='BookingId'>"+booking.BookingId+"</div>" +
-                        "<div class='BookingId'>"+booking.BookingDate+"</div>" +
-                       "<div class='BookingNo'>"+booking.BookingNo+"</div>" +
-                        "<div class='TravlerCount'>"+booking.TravelerCount+"</div>";
+        var bookingsHtml = 
+                "<div class='BookingId'>"+booking.BookingId+"</div>" +
+                "<div class='BookingId'>"+booking.BookingDate+"</div>" +
+                "<div class='BookingNo'>"+booking.BookingNo+"</div>" +
+                "<div class='TravlerCount'>"+booking.TravelerCount+"</div>";
         //$('#'+id).html(bookingsHtml);
         $('#bookings').append("<div id='"+id+"'>"+bookingsHtml+"</div>");
     }
