@@ -9,10 +9,10 @@
             </div>
 
             <div class="selfStart">
-                <button class="sz-64hx64w hoverable teal-button marg-all10">
+                <button id="Profile" class="sz-64hx64w hoverable teal-button marg-all10">
                     <img class="img-cover" src="images/photos/photo8.jpg">
                 </button>
-                <button class="sz-64hx64w hoverable teal-button marg-all10">
+                <button id="Booking" class="sz-64hx64w hoverable teal-button marg-all10">
                     <img class="img-cover" src="images/photos/photo20.jpg">
                 </button>
                 <button class="sz-64hx64w hoverable teal-button marg-all10">
@@ -21,10 +21,41 @@
             </div>
 
             <div class="">
-                <button class="sz-64hx64w hoverable teal-button marg-all10">
+                <button id="Setting" class="sz-64hx64w hoverable teal-button marg-all10">
                     <img  class="sz-24hx24w" src="images/arrow1_right.svg">
                 </button>
             </div>
         </div>
 
 </div>
+
+<script>
+    $(document).ready(function() {
+       
+        $("#loginBtn").click(function () {
+            $('#content').load('login.html');
+        });
+        $("#Booking").click(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'rest/user/bookings',
+                dataType: 'json',
+                success: function (data) {
+                    $("#content").load("bookings.html");
+                }
+            });
+        });
+        $("#Profile").click(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'rest/user/customer',
+                dataType: 'json',
+                success: function (data) {
+                    
+                    $('#content').load('customer.html');
+                }
+            });
+        });
+        
+    });
+</script>

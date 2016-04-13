@@ -52,6 +52,7 @@ public class CustomerResource
             @FormParam("Password") String password)
     {
         String result = null;
+        System.out.println("WE ARE RUNNING LOGIN THING"); 
         try {
             switch (version) {
                 case 1:
@@ -174,7 +175,7 @@ public class CustomerResource
         return result;
     }
     
-     @GET
+    @GET
     @Path("customer")
     //@Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -182,12 +183,16 @@ public class CustomerResource
             @DefaultValue("1") @QueryParam("version") int version)
     {
         String result;
+        System.out.println("WE ARE RUNNING CUSTOMER THING"); 
         try{
             Customer cust = Authenication.Authenicate(request);
+            if(cust == null) {  
+                System.out.println("SHITS FUCKED");
+            }
             if(cust != null){
                 int user = cust.getCustomerId();
-                
-                ArrayList<Customer> customers = CustomerProvider.GetWhere("CustomerId",user);
+                System.out.println("SHITS WORKING");
+                ArrayList<Customer> customers = CustomerProvider.GetWhere("CustomerId", user);
                 result = JsonGenerator.generateJson(customers);
             }
             else{
