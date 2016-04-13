@@ -1,0 +1,53 @@
+<script>
+    var user;
+    $(document).ready(function() {
+        $.ajax({
+            type: 'GET',
+            url: 'rest/user/customer',
+            dataType: 'json',
+            success: function (data) {
+                getBookings(data);
+                console.log(data);
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    });
+
+    function getPage(data) {
+        //console.log(data);
+        //localStorage.setItem("data",JSON.stringify(data));
+        if(data != null){
+            buildPage(data);
+        } else if(data.code == 0){
+            $('#content').load(data.message);
+        } else {
+            //$('#content').load('error.html');
+        }
+    }
+
+    function buildPage(data){
+        $('#username').html(data.CustFirstName + " " + data.CustLastName);
+
+    }
+
+    function getBookings(data){
+        console.log(data);
+        //alert(data.length);
+        for(var i = 0; i < data.length -1; i++) {
+            buildBookings(i,data[i]);
+        }
+    }
+
+    function buildCustomer() {
+        var inputs = ["CustFirstName", "CustLastName", "CustAddress", "CustCity", 
+            "CustPostal", "CustCountry", "CustCountry", "CustHomePhone",
+            "CustBusPhone", "CustEmail"]; 
+        $('#name').load('registration.html');
+        console.log(document);
+        for(i = 0; i > inputs.length; i++) { 
+            $(inputs[i]).val( data[i] );
+        }
+    }
+</script>

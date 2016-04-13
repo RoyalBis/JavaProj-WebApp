@@ -1,25 +1,37 @@
 <div>
     <div>
         <h1 id="username"></h1>
+        <div id="profilecontent"></div>
+        <div id="bookings">I am a bunch of fucking bookings</div>
     </div>
 </div>
 
 <script>
     var user;
     $(document).ready(function() {
+//        $.ajax({
+//            type: 'GET',
+//            url: 'rest/user/page',
+//            dataType: 'json',
+//            success: function (data) {
+//                getPage(data);
+//                console.log(data);
+//            },
+//            error: function (data) {
+//                getPage(data);
+//                console.log(data);
+//            }
+//        });
         $.ajax({
             type: 'GET',
-            url: 'rest/user/page',
+            url: 'rest/user/bookings',
             dataType: 'json',
             success: function (data) {
-                getPage(data);
+                getBookings(data);
                 console.log(data);
-                //alert("Success");
             },
             error: function (data) {
-                getPage(data);
                 console.log(data);
-                //alert("Error");
             }
         });
     });
@@ -38,5 +50,28 @@
 
     function buildPage(data){
         $('#username').html(data.CustFirstName + " " + data.CustLastName);
+
+    }
+
+    function getBookings(data){
+        console.log(data);
+        //alert(data.length);
+        for(var i = 0; i < data.length -1; i++) {
+            buildBookings(i,data[i]);
+        }
+    }
+
+    function buildBookings(i,booking) {
+        var id = "booking" + i;
+        var sel = "#bookings#booking"+i+".BookingId";
+        $('#'+id).load('bookings.html');
+//        $(sel).html("ddhd");
+        console.log(document);
+        var bookingsHtml = "<div class='BookingId'>"+booking.BookingId+"</div>" +
+                        "<div class='BookingId'>"+booking.BookingDate+"</div>" +
+                       "<div class='BookingNo'>"+booking.BookingNo+"</div>" +
+                        "<div class='TravlerCount'>"+booking.TravelerCount+"</div>";
+        //$('#'+id).html(bookingsHtml);
+        $('#bookings').append("<div id='"+id+"'>"+bookingsHtml+"</div>");
     }
 </script>

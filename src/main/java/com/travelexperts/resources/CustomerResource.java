@@ -173,6 +173,34 @@ public class CustomerResource
         }
         return result;
     }
+    
+     @GET
+    @Path("customer")
+    //@Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getCustomer(
+            @DefaultValue("1") @QueryParam("version") int version)
+    {
+        String result;
+        try{
+            Customer cust = Authenication.Authenicate(request);
+            if(cust != null){
+                int user = cust.getCustomerId();
+                
+                ArrayList<Customer> customers = CustomerProvider.GetWhere("CustomerId",user);
+                result = JsonGenerator.generateJson(customers);
+            }
+            else{
+                throw new Exception("Please Login to View Profile");
+            }
+            //may need to use this to pass in an arraylist
+            //result = JsonGenerator.generateJson(bookings, new TypeToken<ArrayList<Booking>>(){});
+        } catch (Exception e){
+            //result = JsonGenerator.generateJson("Errors");
+            result = JsonGenerator.generateErrorJson(e);
+        }
+        return result;
+    }
 
     @GET
     @Path("page")

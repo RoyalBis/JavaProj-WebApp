@@ -26,7 +26,6 @@
 
 <script>
     $(document).ready(function() {
-        $("#profileBtn").show();
         $("#menuBtn").click(function () {
             $("#menu").slideToggle();
         });
@@ -49,7 +48,8 @@
                 url: 'rest/user/logout',
                 dataType: 'json',
                 success: function (data) {
-                    $('#content').load('registration.html');
+                    logout();
+                    $('#content').load('customer.html');
                 }
             });
         });
@@ -58,10 +58,5 @@
             }
         );
     });
-//    $("#settingsBtn").click (function() {
-//        $("#loginBtn").click(function() {
-//
-//        })
-//    })
 </script>
 
