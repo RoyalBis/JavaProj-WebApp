@@ -1,5 +1,7 @@
 form {
     font-family: "Oswald", sans-serif;
+    font-weight: 400;
+    font-size: 1em;
     background-color: #009688;
     position: fixed;
     top: 50%;
@@ -46,7 +48,7 @@ form label + input{
 form input {
     background-color: #26A69A;
     color: #E0F2F1;
-    font-weight: 400;
+    /*font-weight: 400;*/
     font-size: 1.25em;
     text-align: center;
     height: 48px;

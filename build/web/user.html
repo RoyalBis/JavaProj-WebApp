@@ -30,7 +30,7 @@
 //            console.log(data.UserName)
 //            localStorage.setItem("data",JSON.stringify(data));
         if(data.UserName != null){
-            $('#content').load('user.html');
+            $('#content').load('profile.html');
         } else if(data.code == 0){
             $('#content').load(data.message);
         } else {
