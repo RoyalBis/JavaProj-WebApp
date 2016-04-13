@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class BookingDetailsProvider extends EntityProvider
 {
-    protected static IProvider provider = new CustomerProvider();
+    protected static IProvider provider = new BookingDetailsProvider();
 
     //TABLE
     public static final String table = "BookingDetails";
@@ -34,7 +34,7 @@ public class BookingDetailsProvider extends EntityProvider
                     "RegionId",
                     "ClassId",
                     "FeeId",
-                    "ProductSupplierId",
+                    "ProductSupplierId"
             };
 
     //SQL STATEMENTS
@@ -170,6 +170,10 @@ public class BookingDetailsProvider extends EntityProvider
     public IEntity Construct(ResultSet rs) throws SQLException
     {
         int i = 1;
+        System.out.println(
+           rs.getMetaData().getColumnCount() + "\n" +
+           rs.getObject(12) + "\n"
+        );
         BookingDetails details = new BookingDetails();
         details.setBookingDetailId(rs.getInt(i++));
         details.setItineraryNo(rs.getDouble(i++));

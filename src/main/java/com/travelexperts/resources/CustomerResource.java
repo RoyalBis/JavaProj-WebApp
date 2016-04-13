@@ -157,8 +157,9 @@ public class CustomerResource
                 int user = cust.getCustomerId();
                 
                 ArrayList<Booking> bookings = BookingProvider.GetWhere("CustomerId",user);
-                for(Booking book: bookings) { 
-                    ArrayList<BookingDetails> details = BookingDetailsProvider.GetWhere("BookingId", book.getBookingId()); 
+                for(Booking book: bookings) {
+                    ArrayList<BookingDetails> details = BookingDetailsProvider.GetWhere("BookingId", book.getBookingId());
+                    System.out.println(details);
                     book.setBookingDetails(details);
                 }
                 result = JsonGenerator.generateJson(bookings);

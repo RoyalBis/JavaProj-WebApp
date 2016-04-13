@@ -10,7 +10,7 @@
     <div>
         <input type="submit" name="submit" value="Login"/>
     </div>
-    <p class="vCenter-hFlexEnd">
+    <div class="vCenter-hFlexEnd">
         <p>Not a Member? <strong>Sign up Now</strong></p>
     </div>
 </form>
@@ -26,7 +26,6 @@
                success: function(data){
                    $("#profileBtn").show().click($("#content").load("profile.html"));
                    $("#profileBtn p").html(data.UserName);
-                   console.log(data)
                },
                error: function(data){
                    console.log(data);
