@@ -11,7 +11,7 @@
         <input type="submit" name="submit" value="Login"/>
     </div>
     <div class="vCenter-hFlexEnd">
-        <p>Not a Member? <strong>Sign up Now</strong></p>
+        <p>Not a Member? <strong onclick="toRegistration()">Sign up Now</strong></p>
     </div>
 </form>
 
@@ -24,8 +24,11 @@
                data: $("#loginFrm").serialize(),
                dataType: 'json',
                success: function(data){
-                   $("#profileBtn").show().click($("#content").load("profile.html"));
-                   $("#profileBtn p").html(data.UserName);
+                   addBookingsBtn();
+                   addProfileBtn(data);
+                   addLogoutBtn();
+                   $("#loginBtn").hide().unbind("click");
+                   toProfile();
                },
                error: function(data){
                    console.log(data);

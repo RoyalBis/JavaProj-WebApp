@@ -1,5 +1,6 @@
 <div id="CustomerForm" >
     <form id="regFrm">
+        <h3>Account Info</h3>
         <div class="vCenter-hCenter">
             <label>*First Name:</label>
             <input id="CustFirstName" type="text" name="CustFirstName" placeholder="First Name" required/>
@@ -61,7 +62,6 @@
                 buildCustomer(data);
             },
             error: function (data) {
-                console.log("Failed to get Shit"); 
                 console.log(data);
             }
         });
@@ -72,7 +72,7 @@
          $('#CustomerForm input').each(function(i, v) {
             var input = $(this).attr('name');
             if(input !== 'submit') {
-                $( "input[name*='"+input+"']" ).val(Reflect.get(Customer[0],input));
+                $( "input[name*='"+input+"']" ).val(Reflect.get(Customer[0], input));
             }
         }); 
     }
