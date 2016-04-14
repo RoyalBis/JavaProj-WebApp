@@ -29,9 +29,11 @@
         $("#menuBtn").click(function () {
             $("#menu").slideToggle();
         });
+        
         $("#loginBtn").click(function () {
             $('#content').load('login.html');
         });
+        
         $("#bookingsBtn").click(function () {
             $.ajax({
                 type: 'GET',
@@ -42,6 +44,7 @@
                 }
             });
         });
+        
         $("#registerBtn").click(function () {
             $.ajax({
                 type: 'GET',
