@@ -24,6 +24,9 @@
 .material * {
     /*border: 1px red solid;*/
 }
+.material div {
+    padding: 5px;
+}
 
 .BookingId {
     /*transform: translate(0,50%);*/
@@ -45,6 +48,12 @@
     font-family: "Oswald", sans-serif;
     font-weight: 200;
     color: gray;
+}
+
+.Detail {
+    padding: 10px;
+    border: 1px gray solid;
+    /*box-shadow: 0 5px 15px rgba(0,0,0,0.30), 0 5px 5px rgba(0,0,0,0.22);*/
 }
 
 .pagecontent > h2 {

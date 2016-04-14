@@ -68,26 +68,30 @@
         var bookingsHtml =
                 "<div class='BookingId'><p>"+booking.BookingId+"</p></div>" +
                 "<div>" +
-                "<div>" +
-                "<div class='BookingDate vCenter-hFlexStart'><p class='label'>Booking Date: </p><p>"+booking.BookingDate+"</p></div>" +
-                "<div class='BookingNo vCenter-hFlexStart'><p class='label'>Booking#: </p><p>"+booking.BookingNo+"</p></div>" +
-                "<div class='TravelerCount vCenter-hFlexStart'><p class='label'>Num Travelers: </p><p>"+booking.TravelerCount+"</p></div>" +
+                "<div class='vCenter-hFlexStart'>" +
+                "<div class='BookingNo vCenter-hFlexStart'><p class='label'>Booking#:&nbsp;</p><p>"+booking.BookingNo+"</p></div>" +
+                "<div class='BookingDate vCenter-hFlexStart'><p class='label'>Booking Date:&nbsp;</p><p>"+booking.BookingDate+"</p></div>" +
+                "<div class='TravelerCount vCenter-hFlexStart'><p class='label'>Num Travelers:&nbsp;</p><p>"+booking.TravelerCount+"</p></div>" +
                 "</div>" +
-                "<div class='BookingDetail vCenter-hFlexStart'><p class='label'>Booking Details</p>";
+                "<div class='BookingDetails vCenter-hFlexStart'><p class='label'>Booking Details:&nbsp;</p></div>";
         for(var n = 0; n < booking.BookingDetails.length; n++) {
             var detail = booking.BookingDetails[n];
             bookingsHtml +=
-                    "<div class='BookingTemplate'>" +
+                    "<div class='Detail'>" +
 //                    "<div class='BookingDetailId'>"+detail.BookingDetailId+"</div>" +
-                    "<div class='ItineraryNo'>"+detail.ItineraryNo+"</div>" +
-                    "<div class='TripStart'>"+detail.TripStart+"</div>" +
-                    "<div class='TripEnd'>"+detail.TripEnd+"</div>" +
-                    "<div class='Description'>"+detail.Description+"</div>" +
-                    "<div class='Destination'>"+detail.Destination+"</div>" +
-                    "<div class='BasePrice'>"+detail.BasePrice+"</div>" +
+                    "<div class='ItineraryNo vCenter-hFlexStart'><p class='label'>Itinerary No:&nbsp;</p><p>"+detail.ItineraryNo+"</p></div>" +
+                    "<div class='vCenter-hFlexStart'>" +
+                    "<div class='TripStart vCenter-hFlexStart'><p class='label'>Trip Start:&nbsp;</p><p>"+detail.TripStart+"</p></div>" +
+                    "<div class='TripEnd vCenter-hFlexStart'><p class='label'>Trip End:&nbsp;</p><p>"+detail.TripEnd+"</p></div>" +
+                    "</div>" +
+                    "<div class='vCenter-hFlexStart'>" +
+                    "<div class='Description'><p class='label'>Description:&nbsp;</p><p>"+detail.Description+"</p></div>" +
+                    "<div class='Destination'><p class='label'>Destination:&nbsp;</p><p>"+detail.Destination+"</p></div>" +
+                    "</div>" +
+                    "<div class='BasePrice vCenter-hFlexStart'><p class='label'>BasePrice:&nbsp;</p><p>$"+detail.BasePrice+".00</p></div>" +
                     "</div>";
         }
-        bookingsHtml += "</div></div>";
+        bookingsHtml += "</div>";
         $('#bookings').append("<div id='"+id+"' class='vCenter-hFlexStart material'>"+bookingsHtml+"</div>");
     }
 </script>

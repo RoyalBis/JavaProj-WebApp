@@ -49,3 +49,31 @@
         </div>
     </form>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            type: 'GET',
+            url: 'rest/user/customer',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                buildCustomer(data);
+            },
+            error: function (data) {
+                console.log("Failed to get Shit"); 
+                console.log(data);
+            }
+        });
+    });
+   
+
+    function buildCustomer(Customer) {
+         $('#CustomerForm input').each(function(i, v) {
+            var input = $(this).attr('name');
+            if(input !== 'submit') {
+                $( "input[name*='"+input+"']" ).val(Reflect.get(Customer[0],input));
+            }
+        }); 
+    }
+</script>
