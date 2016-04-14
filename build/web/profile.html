@@ -1,27 +1,27 @@
-<div>
+<div class="pagecontent">
     <div>
         <h1 id="username"></h1>
         <div id="profilecontent"></div>
-        <div id="bookings">I am a bunch of fucking bookings</div>
+        <div id="bookings">Bookings</div>
     </div>
 </div>
 
 <script>
     var user;
     $(document).ready(function() {
-//        $.ajax({
-//            type: 'GET',
-//            url: 'rest/user/page',
-//            dataType: 'json',
-//            success: function (data) {
-//                getPage(data);
-//                console.log(data);
-//            },
-//            error: function (data) {
-//                getPage(data);
-//                console.log(data);
-//            }
-//        });
+        $.ajax({
+            type: 'GET',
+            url: 'rest/user/page',
+            dataType: 'json',
+            success: function (data) {
+                getPage(data);
+                console.log(data);
+            },
+            error: function (data) {
+                getPage(data);
+                console.log(data);
+            }
+        });
         $.ajax({
             type: 'GET',
             url: 'rest/user/bookings',
@@ -56,22 +56,38 @@
     function getBookings(data){
         console.log(data);
         //alert(data.length);
-        for(var i = 0; i < data.length -1; i++) {
+        for(var i = 0; i < data.length; i++) {
             buildBookings(i,data[i]);
         }
     }
 
     function buildBookings(i,booking) {
         var id = "booking" + i;
-        var sel = "#bookings#booking"+i+".BookingId";
         $('#'+id).load('bookings.html');
-//        $(sel).html("ddhd");
         console.log(document);
-        var bookingsHtml = "<div class='BookingId'>"+booking.BookingId+"</div>" +
-                        "<div class='BookingId'>"+booking.BookingDate+"</div>" +
-                       "<div class='BookingNo'>"+booking.BookingNo+"</div>" +
-                        "<div class='TravlerCount'>"+booking.TravelerCount+"</div>";
-        //$('#'+id).html(bookingsHtml);
-        $('#bookings').append("<div id='"+id+"'>"+bookingsHtml+"</div>");
+        var bookingsHtml =
+                "<div class='BookingId'><p>"+booking.BookingId+"</p></div>" +
+                "<div>" +
+                "<div>" +
+                "<div class='BookingDate vCenter-hFlexStart'><p class='label'>Booking Date: </p><p>"+booking.BookingDate+"</p></div>" +
+                "<div class='BookingNo vCenter-hFlexStart'><p class='label'>Booking#: </p><p>"+booking.BookingNo+"</p></div>" +
+                "<div class='TravelerCount vCenter-hFlexStart'><p class='label'>Num Travelers: </p><p>"+booking.TravelerCount+"</p></div>" +
+                "</div>" +
+                "<div class='BookingDetail vCenter-hFlexStart'><p class='label'>Booking Details</p>";
+        for(var n = 0; n < booking.BookingDetails.length; n++) {
+            var detail = booking.BookingDetails[n];
+            bookingsHtml +=
+                    "<div class='BookingTemplate'>" +
+//                    "<div class='BookingDetailId'>"+detail.BookingDetailId+"</div>" +
+                    "<div class='ItineraryNo'>"+detail.ItineraryNo+"</div>" +
+                    "<div class='TripStart'>"+detail.TripStart+"</div>" +
+                    "<div class='TripEnd'>"+detail.TripEnd+"</div>" +
+                    "<div class='Description'>"+detail.Description+"</div>" +
+                    "<div class='Destination'>"+detail.Destination+"</div>" +
+                    "<div class='BasePrice'>"+detail.BasePrice+"</div>" +
+                    "</div>";
+        }
+        bookingsHtml += "</div></div>";
+        $('#bookings').append("<div id='"+id+"' class='vCenter-hFlexStart material'>"+bookingsHtml+"</div>");
     }
 </script>

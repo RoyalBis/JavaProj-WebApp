@@ -53,6 +53,19 @@
                 }
             });
         });
+        
+        $("#profileBtn").click(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'rest/user/customer',
+                dataType: 'json',
+                success: function (data) {
+                    
+                    $('#content').load('customer.html');
+                }
+            });
+        });
+        
         $("#menu > button").click(function () {
             $("#menu").slideToggle();
             }

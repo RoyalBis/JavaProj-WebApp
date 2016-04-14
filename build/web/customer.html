@@ -1,5 +1,9 @@
 <div id="CustomerForm" >
     <form id="regFrm">
+        <div>
+            <h1>Profile</h1>
+            <h1></h1>
+        </div>
         <div class="vCenter-hCenter">
             <label>*First Name:</label>
             <input id="CustFirstName" type="text" name="CustFirstName" placeholder="First Name" required/>
@@ -72,7 +76,7 @@
          $('#CustomerForm input').each(function(i, v) {
             var input = $(this).attr('name');
             if(input !== 'submit') {
-                $( "input[name*='"+input+"']" ).val(Reflect.get(Customer[0],input));
+                $( "input[name*='"+input+"']" ).val(Reflect.get(Customer[0], input));
             }
         }); 
     }
