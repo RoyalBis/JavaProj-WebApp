@@ -18,33 +18,35 @@
 </div>
 
 <script>
-    function ImageExists(url) {
+    function BuildImage(url) {
        var img = new Image();
        img.src = url;
-       return img.height != 0;
+    }
+
+    function ImageExists(url) {
+        var img = new Image();
+        img.src = url;
+        return img.height != 0;
     }
 
     $(document).ready(function() {
+        var total = 25; //I am a sweet magic number
         $("#arrowRight").click(function () {
             var str = $('#photo').attr("src"); 
             str = str.substring(str.lastIndexOf("photo")+5,str.lastIndexOf("."));
-            num = parseInt(str); 
-            num = num + 1; 
-            url = "images/background/photo"+num+".jpg"
-            if(ImageExists(url)) {
-                $('#photo').attr("src", url);
-            }
+            num = parseInt(str);
+            num = (num + 1 > total) ? 1 : num + 1;
+            url = "images/background/photo"+num+".jpg";
+            $('#photo').attr("src", url);
         });
         
         $("#arrowLeft").click(function () {
             var str = $('#photo').attr("src"); 
             str = str.substring(str.lastIndexOf("photo")+5,str.lastIndexOf("."));
-            num = parseInt(str); 
-            num = num - 1; 
-            url = "images/background/photo"+num+".jpg"
-            if(ImageExists(url)) {
-                $('#photo').attr("src", url);
-            }
+            num = parseInt(str);
+            num = (num - 1 < 1) ? total : num -1;
+            url = "images/background/photo"+num+".jpg";
+            $('#photo').attr("src", url);
         });
         
         $("#loginBtn").click(function () {

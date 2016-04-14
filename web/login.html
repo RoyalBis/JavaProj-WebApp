@@ -1,4 +1,5 @@
 <form id="loginFrm">
+    <h3 id="login-msg" class="err-msg"></h3>
     <div class="vCenter-hCenter">
         <div class="input-btn sz-48hx48w vCenter-hCenter shrink0"><img class="sz-24hx24w" src="images/user_white.svg"></div>
         <input type="text" name="UserName" placeholder="Username" required autofocus/>
@@ -24,11 +25,15 @@
                data: $("#loginFrm").serialize(),
                dataType: 'json',
                success: function(data){
-                   addBookingsBtn();
-                   addProfileBtn(data);
-                   addLogoutBtn();
-                   $("#loginBtn").hide().unbind("click");
-                   toProfile();
+                   if(!data.code)
+                   {
+                       addBookingsBtn();
+                       addProfileBtn(data);
+                       addLogoutBtn();
+                       $("#loginBtn").hide().unbind("click");
+                       toProfile();
+                   }
+                   invalidcred(data);
                },
                error: function(data){
                    console.log(data);
@@ -37,4 +42,9 @@
            e.preventDefault();
        });
     });
+
+    function invalidcred(data) {
+        $('#login-msg').html(data.message);
+        $('#loginFrm input').not("[type='submit']").val('');
+    }
 </script>

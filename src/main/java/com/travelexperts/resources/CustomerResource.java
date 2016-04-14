@@ -61,12 +61,17 @@ public class CustomerResource
                         map.put("UserName",username);
                         map.put("Password",password);
                         //Search Database
-                        Customer cust = (Customer) CustomerProvider.GetWhere(map).get(0);
+                        ArrayList custMap = CustomerProvider.GetWhere(map);
+                        if(custMap.size() != 1)
+                        {
+                            throw new Exception("Invalid Username or Password");
+                        }
+                        Customer cust = (Customer) custMap.get(0);
                         HttpSession session = request.getSession(true);
                         session.setAttribute("user", cust);
                         result = JsonGenerator.generateJson(cust);
                     } else {
-                        throw new Exception("Invalid Parameters");
+                        throw new Exception("Invalid Username or Password");
                     }
                     break;
                 default:
@@ -105,7 +110,6 @@ public class CustomerResource
         }
         return result;
     }
-
 
     @POST
     @Path("register")
