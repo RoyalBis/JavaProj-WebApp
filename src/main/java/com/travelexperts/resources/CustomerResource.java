@@ -124,6 +124,10 @@ public class CustomerResource
             switch (version) {
                 case 1:
                     Customer cust = (Customer)JsonGenerator.generateTofromJson(inputData, Customer.class);
+                    if(cust == null){
+                        throw new Exception("Invalid Registration Info");
+                    }
+                    System.out.println("Hello " + cust);
                     if (cust.getClass().isInstance(Customer.class))
                     {
                         if (CustomerProvider.Add(cust))
@@ -134,7 +138,7 @@ public class CustomerResource
                         }
 
                     } else {
-                        throw new Exception("Invalid data");
+                        throw new Exception("Invalid Registration Info");
                     }
                     break;
                 default:

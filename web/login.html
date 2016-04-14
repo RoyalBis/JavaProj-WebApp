@@ -1,5 +1,6 @@
 <form id="loginFrm">
-    <h3 id="login-msg" class="err-msg"></h3>
+    <h3 id="login-err" class="err-msg"></h3>
+    <h3 id="login-success" class="success-msg"></h3>
     <div class="vCenter-hCenter">
         <div class="input-btn sz-48hx48w vCenter-hCenter shrink0"><img class="sz-24hx24w" src="images/user_white.svg"></div>
         <input type="text" name="UserName" placeholder="Username" required autofocus/>
@@ -44,7 +45,7 @@
     });
 
     function invalidcred(data) {
-        $('#login-msg').html(data.message);
+        $('#login-err').html(data.message);
         $('#loginFrm input').not("[type='submit']").val('');
     }
 </script>

@@ -12,6 +12,28 @@
     padding: 10px;
 }
 
+#regFrm {
+    font-family: "Oswald", sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    background-color: #009688;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1000;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    padding: 10px;
+}
+
+.err-msg {
+    color: red;
+}
+
+.err-success {
+    color: green;
+}
+
 form > h2 {
     color: #ffffff;
 }
