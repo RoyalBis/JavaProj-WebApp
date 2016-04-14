@@ -6,9 +6,9 @@
         <div id="menu" style="display:none">
             <button id="loginBtn" class="sz-32hx256w vCenter-hSpaceBetween hoverable teal-button marg-all10 pad-left10-right10">
                 <p>Login</p>
-                <img class="sz-24hx24w" src="images/user_white.svg">
+                <img class="sz-24hx24w" src="images/login_white.svg">
             </button>
-            <button id="bookingsBtn"  class="sz-32hx256w vCenter-hSpaceBetween hoverable teal-button marg-all10 pad-left10-right10">
+            <button id="bookingsBtn" style="display:none" class="sz-32hx256w vCenter-hSpaceBetween hoverable teal-button marg-all10 pad-left10-right10">
                 <p>Bookings</p>
                 <img class="sz-24hx24w" src="images/bookings_white.svg">
             </button>
@@ -20,6 +20,10 @@
                 <p></p>
                 <img class="sz-24hx24w" src="images/user_white.svg">
             </button>
+            <button id="logoutBtn" style="display:none" class="sz-32hx256w vCenter-hSpaceBetween hoverable teal-button marg-all10 pad-left10-right10">
+                <p>Logout</p>
+                <img class="sz-24hx24w" src="images/logout_white.svg">
+            </button>
         </div>
     </div>
 </nav>
@@ -29,30 +33,23 @@
         $("#menuBtn").click(function () {
             $("#menu").slideToggle();
         });
-        $("#loginBtn").click(function () {
-            $('#content').load('login.html');
-        });
-        $("#bookingsBtn").click(function () {
-            $.ajax({
-                type: 'GET',
-                url: 'rest/user/bookings',
-                dataType: 'json',
-                success: function (data) {
-                    $("#content").load("bookings.html");
-                }
-            });
-        });
+        addLoginBtn();
+//        addBookingsBtn();
         $("#registerBtn").click(function () {
-            $.ajax({
-                type: 'GET',
-                url: 'rest/user/logout',
-                dataType: 'json',
-                success: function (data) {
-                    logout();
-                    $('#content').load('registration.html');
-                }
-            });
+            toRegistration();
         });
+
+//        $("#profileBtn").click(function () {
+//            $.ajax({
+//                type: 'GET',
+//                url: 'rest/user/customer',
+//                dataType: 'json',
+//                success: function (data) {
+//                    $('#content').load('customer.html');
+//                }
+//            });
+//        });
+        
         $("#menu > button").click(function () {
             $("#menu").slideToggle();
             }

@@ -1,9 +1,6 @@
 <div id="CustomerForm" >
     <form id="regFrm">
-        <div>
-            <h1>Profile</h1>
-            <h1></h1>
-        </div>
+        <h3>Account Info</h3>
         <div class="vCenter-hCenter">
             <label>*First Name:</label>
             <input id="CustFirstName" type="text" name="CustFirstName" placeholder="First Name" required/>
@@ -65,7 +62,6 @@
                 buildCustomer(data);
             },
             error: function (data) {
-                console.log("Failed to get Shit"); 
                 console.log(data);
             }
         });

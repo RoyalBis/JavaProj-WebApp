@@ -1,13 +1,20 @@
 <div class="pagecontent">
-    <div>
-        <h1 id="username"></h1>
-        <div id="profilecontent"></div>
-        <div id="bookings">Bookings</div>
+    <div class="vCenter-hCenter">
+        <button id="Profile" class="sz-64hx64w hoverable teal-button marg-all10">
+            <img class="sz-24hx24w" src="images/user_white.svg">
+        </button>
+        <button id="Booking" class="sz-64hx64w hoverable teal-button marg-all10">
+            <img class="sz-24hx24w" src="images/bookings_white.svg">
+        </button>
+        <button id="Logout" class="sz-64hx64w hoverable teal-button marg-all10">
+            <img class="sz-24hx24w" src="images/logout_white.svg">
+        </button>
     </div>
+    <h1 id="username"></h1>
+    <div id="userpg-content"></div>
 </div>
 
 <script>
-    var user;
     $(document).ready(function() {
         $.ajax({
             type: 'GET',
@@ -22,17 +29,34 @@
                 console.log(data);
             }
         });
-        $.ajax({
-            type: 'GET',
-            url: 'rest/user/bookings',
-            dataType: 'json',
-            success: function (data) {
-                getBookings(data);
-                console.log(data);
-            },
-            error: function (data) {
-                console.log(data);
-            }
+        $('#Booking').click(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'rest/user/bookings',
+                dataType: 'json',
+                success: function (data) {
+                    $('#userpg-content').empty();
+                    getBookings(data);
+                    console.log(data);
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        });
+        $('#Profile').click(function () {
+            $('#userpg-content').load('customer.html');
+        });
+        $("#Logout").click(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'rest/user/logout',
+                dataType: 'json',
+                success: function (data) {
+                    logout();
+                    $('#content').empty();
+                }
+            });
         });
     });
 
@@ -49,45 +73,7 @@
     }
 
     function buildPage(data){
-        $('#username').html(data.CustFirstName + " " + data.CustLastName);
+        $('#username').html("<p>"+data.CustFirstName + " " + data.CustLastName+"</p>");
 
-    }
-
-    function getBookings(data){
-        console.log(data);
-        //alert(data.length);
-        for(var i = 0; i < data.length; i++) {
-            buildBookings(i,data[i]);
-        }
-    }
-
-    function buildBookings(i,booking) {
-        var id = "booking" + i;
-        $('#'+id).load('bookings.html');
-        console.log(document);
-        var bookingsHtml =
-                "<div class='BookingId'><p>"+booking.BookingId+"</p></div>" +
-                "<div>" +
-                "<div>" +
-                "<div class='BookingDate vCenter-hFlexStart'><p class='label'>Booking Date: </p><p>"+booking.BookingDate+"</p></div>" +
-                "<div class='BookingNo vCenter-hFlexStart'><p class='label'>Booking#: </p><p>"+booking.BookingNo+"</p></div>" +
-                "<div class='TravelerCount vCenter-hFlexStart'><p class='label'>Num Travelers: </p><p>"+booking.TravelerCount+"</p></div>" +
-                "</div>" +
-                "<div class='BookingDetail vCenter-hFlexStart'><p class='label'>Booking Details</p>";
-        for(var n = 0; n < booking.BookingDetails.length; n++) {
-            var detail = booking.BookingDetails[n];
-            bookingsHtml +=
-                    "<div class='BookingTemplate'>" +
-//                    "<div class='BookingDetailId'>"+detail.BookingDetailId+"</div>" +
-                    "<div class='ItineraryNo'>"+detail.ItineraryNo+"</div>" +
-                    "<div class='TripStart'>"+detail.TripStart+"</div>" +
-                    "<div class='TripEnd'>"+detail.TripEnd+"</div>" +
-                    "<div class='Description'>"+detail.Description+"</div>" +
-                    "<div class='Destination'>"+detail.Destination+"</div>" +
-                    "<div class='BasePrice'>"+detail.BasePrice+"</div>" +
-                    "</div>";
-        }
-        bookingsHtml += "</div></div>";
-        $('#bookings').append("<div id='"+id+"' class='vCenter-hFlexStart material'>"+bookingsHtml+"</div>");
     }
 </script>

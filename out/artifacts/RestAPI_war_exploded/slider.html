@@ -1,30 +1,66 @@
-<div class="slider vStart-hCenter">
-    <img class="slider-img-contain" src="images/photos/photo8.jpg">
+<div class="slider vStart-hCenter fix-top">
+    <img id="photo" class="slider-img-contain" src="images/background/photo8.jpg">
 
-        <div class="vCenter-hSpaceBetween slider-buttons abs-left sz-100hx100w">
-            <div class="">
-                <button class="sz-64hx64w hoverable teal-button marg-all10">
-                    <img  class="sz-24hx24w" src="images/arrow1_left.svg">
-                </button>
-            </div>
-
-            <div class="selfStart">
-                <button class="sz-64hx64w hoverable teal-button marg-all10">
-                    <img class="img-cover" src="images/photos/photo8.jpg">
-                </button>
-                <button class="sz-64hx64w hoverable teal-button marg-all10">
-                    <img class="img-cover" src="images/photos/photo20.jpg">
-                </button>
-                <button class="sz-64hx64w hoverable teal-button marg-all10">
-                    <img class="img-cover" src="images/photos/photo27.jpg">
-                </button>
-            </div>
-
-            <div class="">
-                <button class="sz-64hx64w hoverable teal-button marg-all10">
-                    <img  class="sz-24hx24w" src="images/arrow1_right.svg">
-                </button>
-            </div>
+    <div class="vCenter-hSpaceBetween slider-buttons abs-left sz-100hx100w">
+        <div>
+            <button id="arrowLeft" class="sz-64hx64w hoverable teal-button marg-all10">
+                <img  class="sz-24hx24w" src="images/arrow1_left.svg">
+            </button>
         </div>
 
+        <div>
+            <button id="arrowRight" class="sz-64hx64w hoverable teal-button marg-all10">
+                <img  class="sz-24hx24w" src="images/arrow1_right.svg">
+            </button>
+        </div>
+    </div>
+
 </div>
+
+<script>
+    function ImageExists(url) {
+       var img = new Image();
+       img.src = url;
+       return img.height != 0;
+    }
+
+    $(document).ready(function() {
+        $("#arrowRight").click(function () {
+            var str = $('#photo').attr("src"); 
+            str = str.substring(str.lastIndexOf("photo")+5,str.lastIndexOf("."));
+            num = parseInt(str); 
+            num = num + 1; 
+            url = "images/background/photo"+num+".jpg"
+            if(ImageExists(url)) {
+                $('#photo').attr("src", url);
+            }
+        });
+        
+        $("#arrowLeft").click(function () {
+            var str = $('#photo').attr("src"); 
+            str = str.substring(str.lastIndexOf("photo")+5,str.lastIndexOf("."));
+            num = parseInt(str); 
+            num = num - 1; 
+            url = "images/background/photo"+num+".jpg"
+            if(ImageExists(url)) {
+                $('#photo').attr("src", url);
+            }
+        });
+        
+        $("#loginBtn").click(function () {
+            $('#content').load('login.html');
+        });
+        
+        $("#Booking").click(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'rest/user/bookings',
+                dataType: 'json',
+                success: function (data) {
+                    $("#content").load("bookings.html");
+                }
+            });
+        });
+        
+    });
+</script>
