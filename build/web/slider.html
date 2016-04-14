@@ -1,52 +1,52 @@
 <div class="slider vStart-hCenter fix-top">
     <img id="photo" class="slider-img-contain" src="images/background/photo8.jpg">
 
-        <div class="vCenter-hSpaceBetween slider-buttons abs-left sz-100hx100w">
-            <div class="">
-                <button id="arrowLeft" class="sz-64hx64w hoverable teal-button marg-all10">
-                    <img  class="sz-24hx24w" src="images/arrow1_left.svg">
-                </button>
-            </div>
-
-            
-
-            <div class="">
-                <button id="arrowRight" class="sz-64hx64w hoverable teal-button marg-all10">
-                    <img  class="sz-24hx24w" src="images/arrow1_right.svg">
-                </button>
-            </div>
+    <div class="vCenter-hSpaceBetween slider-buttons abs-left sz-100hx100w">
+        <div>
+            <button id="arrowLeft" class="sz-64hx64w hoverable teal-button marg-all10">
+                <img  class="sz-24hx24w" src="images/arrow1_left.svg">
+            </button>
         </div>
+
+        <div>
+            <button id="arrowRight" class="sz-64hx64w hoverable teal-button marg-all10">
+                <img  class="sz-24hx24w" src="images/arrow1_right.svg">
+            </button>
+        </div>
+    </div>
 
 </div>
 
 <script>
-    function ImageExists(url) {
+    function BuildImage(url) {
        var img = new Image();
        img.src = url;
-       return img.height != 0;
+    }
+
+    function ImageExists(url) {
+        var img = new Image();
+        img.src = url;
+        return img.height != 0;
     }
 
     $(document).ready(function() {
+        var total = 25; //I am a sweet magic number
         $("#arrowRight").click(function () {
             var str = $('#photo').attr("src"); 
             str = str.substring(str.lastIndexOf("photo")+5,str.lastIndexOf("."));
-            num = parseInt(str); 
-            num = num + 1; 
-            url = "images/background/photo"+num+".jpg"
-            if(ImageExists(url)) {
-                $('#photo').attr("src", url);
-            }
+            num = parseInt(str);
+            num = (num + 1 > total) ? 1 : num + 1;
+            url = "images/background/photo"+num+".jpg";
+            $('#photo').attr("src", url);
         });
         
         $("#arrowLeft").click(function () {
             var str = $('#photo').attr("src"); 
             str = str.substring(str.lastIndexOf("photo")+5,str.lastIndexOf("."));
-            num = parseInt(str); 
-            num = num - 1; 
-            url = "images/background/photo"+num+".jpg"
-            if(ImageExists(url)) {
-                $('#photo').attr("src", url);
-            }
+            num = parseInt(str);
+            num = (num - 1 < 1) ? total : num -1;
+            url = "images/background/photo"+num+".jpg";
+            $('#photo').attr("src", url);
         });
         
         $("#loginBtn").click(function () {
