@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Travel Experts Home</title>
+    <title>Travel Experts</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="js/bookings.js"></script>
+    <script src="js/redirects.js"></script>
+    <script src="js/buttons.js"></script>
     <link rel="stylesheet" type="text/css" href="css/freeflow.css">
     <link rel="stylesheet" type="text/css" href="css/freeform.css">
     <link rel="stylesheet" type="text/css" href="css/content.css">
@@ -20,7 +23,10 @@
         });
 
         function logout() {
+            addLoginBtn();
+            $("#bookingsBtn").hide().unbind("click");
             $("#profileBtn").hide().unbind("click");
+            $("#logoutBtn").hide().unbind("click");
             $("#profileBtn p").html("");
         }
     </script>
