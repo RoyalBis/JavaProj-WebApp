@@ -45,9 +45,6 @@
             <label>Password:</label>
             <input type="password" name="Password" placeholder="Password" required/>
         </div>
-        <div>
-            <input type="submit" name="submit"/>
-        </div>
     </form>
 </div>
 
@@ -59,6 +56,7 @@
             dataType: 'json',
             success: function (data) {
                 console.log(data);
+                $("input").prop("disabled", true);
                 buildCustomer(data);
             },
             error: function (data) {
@@ -71,9 +69,7 @@
     function buildCustomer(Customer) {
          $('#CustomerForm input').each(function(i, v) {
             var input = $(this).attr('name');
-            if(input !== 'submit') {
-                $( "input[name*='"+input+"']" ).val(Reflect.get(Customer[0], input));
-            }
+            $( "input[name*='"+input+"']" ).val(Reflect.get(Customer[0], input));
         }); 
     }
 </script>

@@ -126,7 +126,7 @@ public class CustomerResource
                     Customer cust = (Customer)JsonGenerator.generateTofromJson(inputData, Customer.class);
                     if(cust == null){
                         //Currently this always fails because I have no implementation to convert JSON to a customer
-                        throw new Exception("Invalid Registration Info");
+                        throw new Exception("Customer Registration is not yet Implemented, \nPlease Contact Mark Willms 780-781-9221");
                     }
                     System.out.println("Hello " + cust);
                     if (cust.getClass().isInstance(Customer.class))
